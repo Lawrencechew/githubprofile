@@ -2,6 +2,8 @@
 
 **Platform Engineer · DevSecOps · Cloud Engineer**
 
+Concise engineering profile and curated public artifacts for platform engineering, cloud security and CI/CD automation.
+
 I build and operate secure cloud platforms and production software systems, with a focus on Microsoft Azure, Kubernetes and secure software delivery.
 
 ## What I work on
