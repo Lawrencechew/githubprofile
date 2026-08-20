@@ -33,3 +33,12 @@ A regulatory workflow platform focused on making regulatory processing more stru
 ## Connect
 
 - [LinkedIn](https://linkedin.com/in/lawrencechewzx)
+
+## Selected Work
+
+### Secure AKS Service Blueprint
+Production-oriented reference implementation demonstrating secure CI/CD,
+AKS workload identity, Kubernetes deployment patterns, observability and
+software supply-chain security.
+
+[View repository](https://github.com/Lawrencechew/secure-aks-service-blueprint)
