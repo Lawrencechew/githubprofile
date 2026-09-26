@@ -1,27 +1,68 @@
 ---
-const { title, description } = Astro.props;
+import "../styles/global.css";
+
+const {
+  title,
+  description,
+  canonicalPath = "/",
+} = Astro.props as {
+  title?: string;
+  description?: string;
+  canonicalPath?: string;
+};
+
+const siteName = "Lawrence Chew";
+const fullTitle = title ? `${title} · ${siteName}` : siteName;
+const pageDescription =
+  description ??
+  "Lawrence Chew - Platform Engineer and DevSecOps Engineer specialising in Azure, Kubernetes, secure CI/CD, platform engineering and cloud-native systems.";
+const baseUrl = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const toBase = (path: string) => `${baseUrl}${path.replace(/^\//, "")}`;
+const canonicalTarget = canonicalPath.startsWith("/") ? toBase(canonicalPath) : canonicalPath;
+const canonicalUrl = Astro.site ? new URL(canonicalTarget, Astro.site).toString() : undefined;
 ---
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title ? `${title} · Lawrence Chew` : 'Lawrence Chew'}</title>
-    <meta name="description" content={description ?? 'Platform Engineer · DevSecOps · Cloud Engineer'} />
-    <link rel="stylesheet" href="/src/styles/global.css">
+    <title>{fullTitle}</title>
+    <meta name="description" content={pageDescription} />
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={pageDescription} />
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <link rel="icon" type="image/svg+xml" href={toBase("/favicon.svg")} />
   </head>
   <body>
-    <header>
-      <div class="container">
-        <a href="/" aria-label="Home"><strong>Lawrence Chew</strong></a>
-        <div class="muted">Platform Engineer · DevSecOps · Cloud Engineer</div>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href={toBase("/")} class="brand" aria-label="Home">
+          <strong>Lawrence Chew</strong>
+          <span>Platform Engineer · DevSecOps · Cloud Engineer</span>
+        </a>
+        <nav aria-label="Primary">
+          <ul class="nav-list">
+            <li><a href={toBase("/")}>Home</a></li>
+            <li><a href={toBase("/work")}>Work</a></li>
+            <li><a href={toBase("/experience")}>Experience</a></li>
+            <li><a href={toBase("/about")}>About</a></li>
+            <li><a href={toBase("/resume")}>Resume</a></li>
+          </ul>
+        </nav>
       </div>
     </header>
     <main class="container">
       <slot />
     </main>
     <footer>
-      <div class="container muted">© Lawrence Chew — <a href="/resume">Resume</a> · <a href="https://github.com/Lawrencechew">GitHub</a> · <a href="https://linkedin.com/in/lawrencechewzx">LinkedIn</a></div>
+      <div class="container muted">
+        © Lawrence Chew — <a href={toBase("/resume")}>Resume</a> · <a href="https://github.com/Lawrencechew">GitHub</a> · <a href="https://linkedin.com/in/lawrencechewzx">LinkedIn</a>
+      </div>
     </footer>
   </body>
 </html>

@@ -10,7 +10,7 @@
     "check": "tsc --noEmit"
   },
   "dependencies": {
-    "astro": "^4.10.0"
+    "astro": "^7.3.2"
   },
   "devDependencies": {
     "typescript": "^5.5.0"

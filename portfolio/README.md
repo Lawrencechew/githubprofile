@@ -5,10 +5,11 @@ Personal engineering portfolio for Lawrence Chew. Built with Astro and TypeScrip
 Build and preview locally:
 
 ```bash
-cd C:\Dev\portfolio
-npm install
+cd C:\Dev\githubprofile\Lawrencechew\portfolio
+npm ci
+npm run check
 npm run build
 npm run preview
 ```
 
-Deployment notes: static site; deploy to GitHub Pages, Netlify, or Vercel.
+GitHub Pages deployment is configured from repository-root workflows in [../.github/workflows/](../.github/workflows/).

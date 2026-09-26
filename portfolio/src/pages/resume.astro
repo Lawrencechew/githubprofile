@@ -1,7 +1,19 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
+import BaseLayout from "../layouts/BaseLayout.astro";
+const baseUrl = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const toBase = (path: string) => `${baseUrl}${path.replace(/^\//, "")}`;
 ---
-<BaseLayout title="Resume">
+<BaseLayout title="Resume" description="Download Lawrence Chew's platform engineering and DevSecOps resume." canonicalPath="/resume/">
   <h1>Resume</h1>
-  <p class="muted">A concise professional resume is available for download or on request. Contact via LinkedIn.</p>
+  <p class="muted">Platform Engineer · DevSecOps · Cloud Engineer</p>
+  <p>
+    A downloadable PDF is available on request. In the meantime, use the experience page and LinkedIn profile for current role and
+    delivery details.
+  </p>
+
+  <div class="actions">
+    <a class="btn primary" href="https://linkedin.com/in/lawrencechewzx">View LinkedIn Profile</a>
+    <a class="btn" href={toBase("/experience")}>View Experience</a>
+    <a class="btn" href={toBase("/work")}>View Engineering Work</a>
+  </div>
 </BaseLayout>

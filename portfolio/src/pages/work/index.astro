@@ -1,18 +1,26 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro'
----
-<BaseLayout title="Work">
-  <h1>Work</h1>
-  <p class="muted">Selected case studies and engineering work.</p>
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { featuredProjectOrder, getProjectBySlug } from "../../data/projects";
 
-  <section class="grid">
-    <div class="card">
-      <h3><a href="/work/secure-aks-service-blueprint">Secure AKS Service Blueprint</a></h3>
-      <p class="muted">Reference implementation and best-practice blueprint for secure AKS services.</p>
-    </div>
-    <div class="card">
-      <h3>RegBridge</h3>
-      <p class="muted">A high-level engineering case study (private project).</p>
-    </div>
+const projects = featuredProjectOrder
+  .map((slug) => getProjectBySlug(slug))
+  .filter((project) => project !== undefined);
+const baseUrl = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const toBase = (path: string) => `${baseUrl}${path.replace(/^\//, "")}`;
+---
+<BaseLayout title="Engineering Work" description="Selected platform, DevSecOps and software engineering case studies." canonicalPath="/work/">
+  <section class="hero">
+    <h1>Engineering Work</h1>
+    <p class="muted">Selected platform engineering and software delivery case studies.</p>
+  </section>
+
+  <section class="grid work-grid">
+    {projects.map((project) => (
+      <article class="card">
+        <h2><a href={toBase(`/work/${project.slug}`)}>{project.title}</a></h2>
+        <p class="muted">{project.subtitle}</p>
+        <p>{project.summary}</p>
+      </article>
+    ))}
   </section>
 </BaseLayout>

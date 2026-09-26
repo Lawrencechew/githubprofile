@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://lawrencechew.github.io/githubprofile/sitemap.xml

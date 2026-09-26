@@ -1,24 +1,16 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro'
+const baseUrl = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const breakwaterPath = `${baseUrl}work/breakwater`;
 ---
-<BaseLayout title="Secure AKS Service Blueprint">
-  <h1>Secure AKS Service Blueprint</h1>
-  <p class="muted">Production-oriented reference implementation demonstrating secure CI/CD, AKS workload identity, Kubernetes deployment patterns, observability and software supply-chain security.</p>
-
-  <h2>Problem</h2>
-  <p>The blueprint shows how to build, test, containerise and deploy a small service to AKS with production concerns: secure CI/CD, SBOM generation, vulnerability scanning, and minimal runtime privileges.</p>
-
-  <h2>Architecture & approach</h2>
-  <ul>
-    <li>Terraform for infrastructure examples (resource groups, ACR, AKS, Key Vault).</li>
-    <li>Helm chart for Kubernetes deployment with secure defaults.</li>
-    <li>Workload identity and Key Vault CSI integration for secrets.</li>
-    <li>SBOM generation and Trivy scanning during CI.</li>
-    <li>Prometheus metrics and structured JSON logging for observability.</li>
-  </ul>
-
-  <h2>Engineering trade-offs</h2>
-  <p>The blueprint favours clarity and repeatability over full production operational complexity; it is a reference starting point rather than a one-click platform install.</p>
-
-  <p><a href="https://github.com/Lawrencechew/secure-aks-service-blueprint">View Source →</a></p>
-</BaseLayout>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0; url=${breakwaterPath}`} />
+    <title>Redirecting to Breakwater</title>
+    <link rel="canonical" href={breakwaterPath} />
+  </head>
+  <body>
+    <p>This project has been renamed. Continue to <a href={breakwaterPath}>Breakwater</a>.</p>
+  </body>
+</html>

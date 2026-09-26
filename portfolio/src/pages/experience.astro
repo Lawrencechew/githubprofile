@@ -1,22 +1,31 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { currentRoles, earlierExperience } from "../data/experience";
 ---
-<BaseLayout title="Experience">
+<BaseLayout title="Experience" description="Career progression across platform engineering, DevSecOps and cloud-native systems." canonicalPath="/experience/">
   <h1>Experience</h1>
+  <p class="muted">Maritime and Port Authority of Singapore · Jun 2021 - Present</p>
 
-  <h2>DevSecOps Engineer — Maritime and Port Authority of Singapore</h2>
-  <div class="muted">Jun 2021 – Present</div>
-  <ul>
-    <li>Azure DevOps CI/CD, secure software delivery, Checkmarx scanning</li>
-    <li>AKS administration, platform upgrades and migrations</li>
-    <li>Managed Identity, Azure Key Vault, Secret Store CSI Driver</li>
-    <li>Observability: Azure Monitor, Managed Prometheus, Grafana</li>
-    <li>SBOM and vulnerability management; automation with Bash/PowerShell/Python</li>
-  </ul>
+  <section class="section grid">
+    {currentRoles.map((role) => (
+      <article class="card">
+        <h2>{role.role}</h2>
+        <p class="muted">{role.organisation} · {role.period}</p>
+        <ul>{role.highlights.map((item) => <li>{item}</li>)}</ul>
+      </article>
+    ))}
+  </section>
 
-  <h2>Digital Planning Lab Intern — Urban Redevelopment Authority</h2>
-  <div class="muted">Python automation for GIS workflows; ArcGIS processing</div>
-
-  <h2>Research Intern — National University of Singapore</h2>
-  <div class="muted">R Shiny application for dengue surveillance and spatial analytics</div>
+  <section class="section">
+    <h2>Earlier Experience</h2>
+    <div class="grid">
+      {earlierExperience.map((role) => (
+        <article class="card">
+          <h3>{role.role}</h3>
+          <p class="muted">{role.organisation}</p>
+          <ul>{role.highlights.map((item) => <li>{item}</li>)}</ul>
+        </article>
+      ))}
+    </div>
+  </section>
 </BaseLayout>

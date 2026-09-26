@@ -1,43 +1,100 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { featuredProjectOrder, getProjectBySlug } from "../data/projects";
+import { skillGroups } from "../data/skills";
+
+const featuredProjects = featuredProjectOrder
+  .map((slug) => getProjectBySlug(slug))
+  .filter((project) => project !== undefined);
+const baseUrl = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const toBase = (path: string) => `${baseUrl}${path.replace(/^\//, "")}`;
 ---
-<BaseLayout title="Home" description="Platform Engineer · DevSecOps · Cloud Engineer">
+<BaseLayout
+  title="Lawrence Chew"
+  description="Platform Engineer and DevSecOps Engineer specialising in Azure, Kubernetes, secure CI/CD, platform engineering and cloud-native systems."
+  canonicalPath="/"
+>
   <section class="hero">
     <h1>Lawrence Chew</h1>
-    <div class="muted">Platform Engineer · DevSecOps · Cloud Engineer</div>
-    <p>I build and operate secure cloud platforms and production software systems, with a focus on Microsoft Azure, Kubernetes and secure software delivery.</p>
+    <div class="muted">Platform Engineer · DevSecOps · Cloud Engineering</div>
+    <p>
+      I build secure cloud platforms, Kubernetes infrastructure and software delivery systems designed for reliability, developer
+      experience and operational clarity.
+    </p>
+    <div class="actions">
+      <a class="btn primary" href={toBase("/work")}>View Engineering Work</a>
+      <a class="btn" href="https://github.com/Lawrencechew">GitHub</a>
+      <a class="btn" href="https://linkedin.com/in/lawrencechewzx">LinkedIn</a>
+      <a class="btn" href={toBase("/resume")}>Download Resume</a>
+    </div>
   </section>
 
-  <section class="grid">
+  <section class="section">
     <h2>Selected Work</h2>
-    <div class="card">
-      <h3><a href="/work/secure-aks-service-blueprint">Secure AKS Service Blueprint</a></h3>
-      <p class="muted">Production-oriented reference implementation demonstrating secure CI/CD, AKS workload identity, Kubernetes deployment patterns and supply-chain security.</p>
-    </div>
-    <div class="card">
-      <h3>RegBridge</h3>
-      <p class="muted">A regulatory workflow platform focused on making regulatory processing more structured, deterministic and auditable.</p>
+    <div class="grid work-grid">
+      {featuredProjects.map((project) => (
+        <article class="card">
+          <h3><a href={toBase(`/work/${project.slug}`)}>{project.title}</a></h3>
+          <p class="muted">{project.subtitle}</p>
+          <p>{project.summary}</p>
+        </article>
+      ))}
     </div>
   </section>
 
-  <section class="two">
-    <div>
-      <h3>Areas of focus</h3>
-      <ul>
-        <li>Platform Engineering</li>
-        <li>Kubernetes / AKS</li>
-        <li>CI/CD & Developer Experience</li>
-        <li>Cloud-native security & supply-chain</li>
-      </ul>
+  <section class="section">
+    <h2>Current Focus</h2>
+    <div class="grid work-grid">
+      <article class="card">
+        <h3>Platform Engineering</h3>
+        <p>Internal platform foundations, self-service patterns and secure defaults for delivery teams.</p>
+      </article>
+      <article class="card">
+        <h3>Kubernetes / AKS</h3>
+        <p>Cluster operations, upgrade planning, workload reliability and platform troubleshooting.</p>
+      </article>
+      <article class="card">
+        <h3>CI/CD & Developer Experience</h3>
+        <p>Delivery workflows that balance speed with governance, auditability and operational safety.</p>
+      </article>
+      <article class="card">
+        <h3>Cloud-native Security</h3>
+        <p>Identity-first architecture, policy controls, supply-chain checks and vulnerability management.</p>
+      </article>
+      <article class="card">
+        <h3>GitOps & Infrastructure Automation</h3>
+        <p>Declarative operations with Terraform, Helm and Argo CD aligned to platform lifecycle practices.</p>
+      </article>
+      <article class="card">
+        <h3>Observability & Reliability</h3>
+        <p>Operational telemetry, SLI/SLO design and runbook-oriented reliability engineering.</p>
+      </article>
     </div>
-    <aside class="card">
-      <h4>Quick links</h4>
-      <ul>
-        <li><a href="/work">Work</a></li>
-        <li><a href="https://github.com/Lawrencechew">GitHub</a></li>
-        <li><a href="https://linkedin.com/in/lawrencechewzx">LinkedIn</a></li>
-        <li><a href="/resume">Resume</a></li>
-      </ul>
-    </aside>
+  </section>
+
+  <section class="section">
+    <h2>Technical Skills</h2>
+    <div class="skill-grid">
+      {skillGroups.map((group) => (
+        <article class="card">
+          <h3>{group.name}</h3>
+          <div class="tag-list">
+            {group.skills.map((skill) => (
+              <span class="tag">{skill}</span>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section card">
+    <h2>Contact</h2>
+    <p class="muted">Open to platform engineering, DevSecOps and cloud engineering opportunities.</p>
+    <ul>
+      <li>Email available on request</li>
+      <li><a href="https://linkedin.com/in/lawrencechewzx">LinkedIn</a></li>
+      <li><a href="https://github.com/Lawrencechew">GitHub</a></li>
+    </ul>
   </section>
 </BaseLayout>

@@ -2,18 +2,18 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getProjectBySlug } from "../../data/projects";
 
-const project = getProjectBySlug("regbridge");
+const project = getProjectBySlug("breakwater");
 
 if (!project) {
-  throw new Error("RegBridge project data not found.");
+  throw new Error("Breakwater project data not found.");
 }
 ---
-<BaseLayout title={`${project.title} — ${project.subtitle}`} description={project.summary} canonicalPath="/work/regbridge/">
+<BaseLayout title={`${project.title} — ${project.subtitle}`} description={project.summary} canonicalPath="/work/breakwater/">
   <h1>{project.title}</h1>
   <p class="muted">{project.subtitle}</p>
   <p>{project.summary}</p>
 
-  <section class="section card">
+  <section class="section">
     <h2>Overview</h2>
     <p>{project.positioning}</p>
   </section>
@@ -55,9 +55,9 @@ if (!project) {
 
   <section class="section card">
     <h2>Repository / Demo</h2>
-    <p>{project.repositoryLabel}</p>
-    <p class="muted">
-      Public case-study positioning only. Proprietary implementation details, source code and tenant-sensitive architecture are intentionally not published.
+    <p>
+      <a href={project.repositoryUrl}>{project.repositoryLabel}</a>
     </p>
+    <p class="muted">Live cloud validation (AKS/Argo/Workload Identity runtime proof) depends on environment access and is tracked separately.</p>
   </section>
 </BaseLayout>

@@ -1,44 +1,36 @@
 # Lawrence Chew
 
-**Platform Engineer · DevSecOps · Cloud Engineer**
+**Platform Engineer · DevSecOps Engineer · Cloud Engineer**
 
-Concise engineering profile and curated public artifacts for platform engineering, cloud security and CI/CD automation.
+I build and operate secure cloud platforms and production software systems with a focus on Kubernetes, developer platforms, secure software delivery and operational reliability.
 
-I build and operate secure cloud platforms and production software systems, with a focus on Microsoft Azure, Kubernetes and secure software delivery.
+## Selected Work
 
-## What I work on
+### Breakwater
+**Secure AKS Platform Blueprint**  
+Production-oriented AKS reference architecture covering Terraform, workload identity, GitOps, policy-as-code, supply-chain controls and SRE validation.
 
-- Platform Engineering
-- Kubernetes (AKS) & container platforms
-- CI/CD automation & developer experience
-- Cloud-native & software supply-chain security
-- Identity, secrets & credential management
-- Observability with Grafana, Prometheus & Azure Monitor
+[View repository](https://github.com/Lawrencechew/breakwater)
 
-## Currently building
+### Slipway
+**Git-native Golden Paths for Platform Engineering**  
+Developer-platform reference implementation for deterministic request workflows, approval governance, controlled execution and auditability.
+
+[View repository](https://github.com/Lawrencechew/slipway)
 
 ### RegBridge
+**Private regulatory workflow product / case study**  
+Multi-tenant regulatory workflow platform focused on deterministic processing, traceability and secure organisation-scoped operations.
 
-A regulatory workflow platform focused on making regulatory processing more structured, deterministic and auditable.
+Private source code
 
-## Engineering interests
+## Focus Areas
 
-- Internal Developer Platforms & developer experience
-- Infrastructure automation
-- Secure software delivery & software supply-chain security
-- Kubernetes platform reliability
-- Observability & incident response
-- Cloud-native architecture
+- Platform engineering and internal developer platforms
+- Kubernetes / AKS operations and reliability
+- Secure CI/CD, supply-chain controls and policy enforcement
+- Observability, SLI/SLO thinking and incident response
 
 ## Connect
 
 - [LinkedIn](https://linkedin.com/in/lawrencechewzx)
-
-## Selected Work
-
-### Secure AKS Service Blueprint
-Production-oriented reference implementation demonstrating secure CI/CD,
-AKS workload identity, Kubernetes deployment patterns, observability and
-software supply-chain security.
-
-[View repository](https://github.com/Lawrencechew/secure-aks-service-blueprint)
