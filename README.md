@@ -19,10 +19,11 @@ Developer-platform reference implementation for deterministic request workflows,
 [View repository](https://github.com/Lawrencechew/slipway)
 
 ### RegBridge
-**Private regulatory workflow product / case study**  
-Multi-tenant regulatory workflow platform focused on deterministic processing, traceability and secure organisation-scoped operations.
+**Regulatory Workflow Platform**
 
-Private source code
+Secure multi-tenant workflow architecture demonstrating deterministic processing, RBAC, OIDC authentication, auditability and modular compliance packs.
+
+[Public Portfolio Edition](https://github.com/Lawrencechew/regbridge-public)
 
 ## Focus Areas
 

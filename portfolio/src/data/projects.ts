@@ -112,8 +112,8 @@ export const projects: Project[] = [
     title: "RegBridge",
     subtitle: "Regulatory Workflow Platform",
     summary:
-      "A multi-tenant regulatory evidence workflow platform designed around deterministic processing, traceability and secure organisation-scoped workflows.",
-    positioning: "Private Product · Architecture & Engineering Case Study.",
+      "A secure multi-tenant workflow platform demonstrating deterministic processing, organisation-scoped RBAC, OIDC authentication, auditability and modular compliance packs.",
+    positioning: "Public Portfolio Edition.",
     problem:
       "Regulatory workflows often degrade into low-traceability handoffs and inconsistent approval logic. RegBridge focuses on deterministic workflow state, auditability and tenant-safe boundaries.",
     engineeringGoals: [
@@ -137,15 +137,16 @@ export const projects: Project[] = [
       "Auditability and lifecycle trace reconstruction.",
     ],
     validation: [
-      "Case-study level architecture and engineering validation only.",
-      "No public source code or live demo claims on this site.",
+      "Automated backend, frontend, lint, build, secret, dependency and container security checks.",
+      "Synthetic demonstration data and a fictional Example Compliance Pack.",
     ],
     demonstrates: [
       "Product-level workflow architecture.",
       "Secure multi-tenant system design.",
-      "Engineering communication without exposing proprietary implementation.",
+      "Engineering communication with a clearly bounded public/private release model.",
     ],
-    repositoryLabel: "Private source code",
+    repositoryUrl: "https://github.com/Lawrencechew/regbridge-public",
+    repositoryLabel: "View public repository",
   },
 ];
 

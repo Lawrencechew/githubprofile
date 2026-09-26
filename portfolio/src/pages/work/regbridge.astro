@@ -55,9 +55,11 @@ if (!project) {
 
   <section class="section card">
     <h2>Repository / Demo</h2>
-    <p>{project.repositoryLabel}</p>
+    <p>
+      <a href={project.repositoryUrl}>{project.repositoryLabel}</a>
+    </p>
     <p class="muted">
-      Public case-study positioning only. Proprietary implementation details, source code and tenant-sensitive architecture are intentionally not published.
+      The public edition uses synthetic data and a fictional compliance pack; private domain-specific content is intentionally excluded.
     </p>
   </section>
 </BaseLayout>
